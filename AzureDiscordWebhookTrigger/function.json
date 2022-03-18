@@ -1,0 +1,13 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "direction": "in",
+      "methods": ["post"],
+      "name": "req",
+      "type": "httpTrigger"
+    },
+    { "direction": "out", "name": "res", "type": "http" }
+  ],
+  "scriptFile": "../dist/AzureDiscordWebhookTrigger/index.js"
+}
