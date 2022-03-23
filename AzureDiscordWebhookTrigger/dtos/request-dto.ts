@@ -1,7 +1,7 @@
-import { PersonDto } from './person-dto'
+import { RequestedForDto } from './requested-for-dto'
 
 export class RequestDto {
   id: number
-  requestedFor: PersonDto
+  requestedFor: RequestedForDto
   url: string
 }

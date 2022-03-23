@@ -1,0 +1,4 @@
+{
+  "IsEncrypted": false,
+  "Values": { "languageWorkers:node:arguments": "--inspect=5858" }
+}

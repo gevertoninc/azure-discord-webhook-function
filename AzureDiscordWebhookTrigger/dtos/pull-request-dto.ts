@@ -1,51 +1,35 @@
-import { CommentDto } from './comment-dto'
+import { CompletionOptionsDto } from './completion-options-dto'
 import { CreatedByDto } from './created-by-dto'
-import { DefinitionDto } from './definition-dto'
-import { LastChangedByDto } from './last-changed-by-dto'
 import { LastMergeCommitDto } from './last-merge-commit-dto'
 import { LastMergeSourceCommitDto } from './last-merge-source-commit-dto'
 import { LastMergeTargetCommitDto } from './last-merge-target-commit-dto'
-import { LinksDto } from './links-dto'
-import { PullRequestDto } from './pull-request-dto'
+import { ClosedByDto } from './closed-by-dto'
 import { RepositoryDto } from './repository-dto'
-import { RequestDto } from './request-dto'
 import { ReviewerDto } from './reviewer-dto'
 
-export class ResourceDto {
+export class PullRequestDto {
   artifactId: string
-  buildNumber: string
+  closedBy: ClosedByDto
+  closedDate: Date
   codeReviewId: number
-  comment: CommentDto
+  completionOptions: CompletionOptionsDto
+  completionQueueTime: Date
   createdBy: CreatedByDto
   creationDate: Date
-  definition: DefinitionDto
   description: string
-  drop: object
-  finishTime: Date
-  id: number
   isDraft: boolean
-  lastChangedBy: LastChangedByDto
   lastMergeCommit: LastMergeCommitDto
   lastMergeSourceCommit: LastMergeSourceCommitDto
   lastMergeTargetCommit: LastMergeTargetCommitDto
-  _links: LinksDto
-  log: object
   mergeId: string
   mergeStatus: string
-  pullRequest: PullRequestDto
   pullRequestId: number
-  reason: string
   repository: RepositoryDto
-  requests: RequestDto[]
-  retainIndefinitely: boolean
-  reviewers: ReviewerDto[]
-  sourceGetVersion: string
+  reviewers: ReviewerDto
   sourceRefName: string
-  startTime: Date
   status: string
   supportsIterations: boolean
   targetRefName: string
   title: string
-  uri: string
   url: string
 }

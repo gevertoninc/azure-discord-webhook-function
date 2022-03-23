@@ -1,10 +1,9 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions'
-import axios from 'axios'
 import { plainToClass } from 'class-transformer'
 import { envs } from './app.env'
 import { constants } from './constants'
 import { AzureDto } from './dtos/azure-dto'
-import { DiscordDto } from './dtos/discord-dto'
+import { send } from './output'
 
 const discordWebhook: AzureFunction = async (
   context: Context,
@@ -59,9 +58,9 @@ const discordWebhook: AzureFunction = async (
             targetRefName,
             title
           }
-        } = body
+        } = azureDto
 
-        const getSimpleBranchName = fullBranchName =>
+        const getSimpleBranchName = (fullBranchName: string) =>
           fullBranchName.split(constants.branchNamePrefix)
 
         const [, source] = getSimpleBranchName(sourceRefName)
@@ -89,7 +88,7 @@ const discordWebhook: AzureFunction = async (
           },
           pullRequest: { pullRequestId }
         }
-      } = body
+      } = azureDto
 
       const [, url] = html.split('"')
 
@@ -108,28 +107,6 @@ const discordWebhook: AzureFunction = async (
   const responseMessage = 'Dorime'
 
   context.res = { body: responseMessage }
-}
-
-const send = async (url: string, data: DiscordDto): Promise<void> => {
-  try {
-    await axios.post(url, data)
-  } catch (error: unknown) {
-    parseError(error)
-  }
-}
-
-const parseError = (error: unknown): void => {
-  if (axios.isAxiosError(error)) {
-    const {
-      response: { data, status, statusText }
-    } = error
-
-    const outputError = { data, status, statusText }
-
-    console.error(outputError)
-  }
-
-  console.error(error)
 }
 
 export default discordWebhook

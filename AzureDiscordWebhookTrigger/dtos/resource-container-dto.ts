@@ -1,7 +1,9 @@
-import { UrlDto } from './url-dto'
+import { AccountDto } from './account-dto'
+import { CollectionDto } from './collection-dto'
+import { ProjectDto } from './project-dto'
 
 export class ResourceContainerDto {
-  account: UrlDto
-  collection: UrlDto
-  project: UrlDto
+  account: AccountDto
+  collection: CollectionDto
+  project: ProjectDto
 }

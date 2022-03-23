@@ -1,12 +1,13 @@
-import { EventTypes } from '../event-types'
+import { EventType } from '../event-type'
+import { DetailedMessageDto } from './detailed-message-dto'
 import { MessageDto } from './message-dto'
 import { ResourceContainerDto } from './resource-container-dto'
 import { ResourceDto } from './resource-dto'
 
 export class AzureDto {
   createdDate: Date
-  detailedMessage: MessageDto
-  eventType: EventTypes
+  detailedMessage: DetailedMessageDto
+  eventType: EventType
   id: string
   message: MessageDto
   notificationId: number
