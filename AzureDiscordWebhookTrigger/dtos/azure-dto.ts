@@ -4,7 +4,7 @@ import { MessageDto } from './message-dto'
 import { ResourceContainerDto } from './resource-container-dto'
 import { ResourceDto } from './resource-dto'
 
-export class AzureDto {
+export class AzureEventDto {
   createdDate: Date
   detailedMessage: DetailedMessageDto
   eventType: EventType

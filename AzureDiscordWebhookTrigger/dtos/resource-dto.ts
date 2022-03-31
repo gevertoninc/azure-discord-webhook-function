@@ -1,6 +1,7 @@
 import { CommentDto } from './comment-dto'
 import { CreatedByDto } from './created-by-dto'
 import { DefinitionDto } from './definition-dto'
+import { FieldsDto } from './fields-dto'
 import { LastChangedByDto } from './last-changed-by-dto'
 import { LastMergeCommitDto } from './last-merge-commit-dto'
 import { LastMergeSourceCommitDto } from './last-merge-source-commit-dto'
@@ -10,6 +11,7 @@ import { PullRequestDto } from './pull-request-dto'
 import { RepositoryDto } from './repository-dto'
 import { RequestDto } from './request-dto'
 import { ReviewerDto } from './reviewer-dto'
+import { RevisionDto } from './revision-dto'
 
 export class ResourceDto {
   artifactId: string
@@ -21,6 +23,7 @@ export class ResourceDto {
   definition: DefinitionDto
   description: string
   drop: object
+  fields: FieldsDto
   finishTime: Date
   id: number
   isDraft: boolean
@@ -39,6 +42,7 @@ export class ResourceDto {
   requests: RequestDto[]
   retainIndefinitely: boolean
   reviewers: ReviewerDto[]
+  revision: RevisionDto
   sourceGetVersion: string
   sourceRefName: string
   startTime: Date
@@ -48,4 +52,5 @@ export class ResourceDto {
   title: string
   uri: string
   url: string
+  workItemId: string
 }
