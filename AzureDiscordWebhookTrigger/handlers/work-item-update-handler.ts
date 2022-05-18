@@ -2,6 +2,7 @@ import { envs } from '../app.env'
 import { AzureEventDto } from '../dtos/azure-dto'
 import { DiscordDto } from '../dtos/discord-dto'
 import { send } from '../output'
+import { getValueOrEmptyString } from '../utils'
 import { AzureEventHandler } from './azure-event-handler'
 
 const handleWorkItemUpdate: AzureEventHandler = async (
@@ -9,7 +10,13 @@ const handleWorkItemUpdate: AzureEventHandler = async (
 ): Promise<void> => {
   const data: DiscordDto = {
     avatar_url: envs.AVATAR_URL,
-    content: `Task ${azureEventDto.resource.workItemId} atualizada\ndo status ${azureEventDto.resource.fields['System.State'].oldValue} para ${azureEventDto.resource.fields['System.State'].newValue}\natribuída para ${azureEventDto.resource.revision.fields['System.AssignedTo']}`,
+    content: `Task: ${azureEventDto.resource.workItemId}\nStatus de origem : ${
+      azureEventDto.resource.fields['System.State'].oldValue
+    }\nStatus de destino: ${
+      azureEventDto.resource.fields['System.State'].newValue
+    }\nResponsável: ${getValueOrEmptyString(
+      azureEventDto.resource.revision.fields['System.AssignedTo']
+    )}`,
     username: envs.DISCORD_USERNAME
   }
 

@@ -7,22 +7,22 @@
     "eslint": "npx eslint .",
     "prestart": "npm run build",
     "prettier": "npx prettier --write .",
-    "start": "func start",
+    "start": "/usr/bin/func start --typescript",
     "watch": "tsc -w"
   },
   "devDependencies": {
-    "@azure/functions": "^1.2.3",
+    "@azure/functions": "^3.0.0",
     "@types/node": "^16.11.7",
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "@typescript-eslint/parser": "^5.15.0",
-    "eslint": "^8.11.0",
-    "prettier": "^2.6.0",
-    "typescript": "^4.0.0"
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.15.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
   },
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^0.27.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.1"
   }
 }

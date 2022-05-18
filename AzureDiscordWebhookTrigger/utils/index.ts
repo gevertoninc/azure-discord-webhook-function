@@ -8,4 +8,12 @@ const getSimpleBranchNames = (fullBranchNames: string[]): string[] => {
   return fullBranchNames.map(getSimpleBranchName)
 }
 
-export { getSimpleBranchName, getSimpleBranchNames }
+const getValueOrEmptyString = (value: unknown): string => {
+  if (typeof value !== 'string') {
+    return constants.emptyString
+  }
+
+  return value
+}
+
+export { getSimpleBranchName, getSimpleBranchNames, getValueOrEmptyString }

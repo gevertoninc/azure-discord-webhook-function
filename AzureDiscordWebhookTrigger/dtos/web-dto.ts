@@ -1,3 +1,3 @@
 export class WebDto {
-  href: string
+  href?: string
 }

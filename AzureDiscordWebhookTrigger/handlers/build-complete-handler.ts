@@ -9,7 +9,7 @@ const handleBuildComplete: AzureEventHandler = async (
 ): Promise<void> => {
   const data: DiscordDto = {
     avatar_url: envs.AVATAR_URL,
-    content: `Build do ${azureEventDto.resource.definition.name} terminou com status ${azureEventDto.resource.status} - culpa do ${azureEventDto.resource.requests[0].requestedFor.displayName}`,
+    content: `Repositório: ${azureEventDto.resource.definition.name}\nStatus: ${azureEventDto.resource.status}\nCulpado: ${azureEventDto.resource.requests[0].requestedFor.displayName}`,
     username: envs.DISCORD_USERNAME
   }
 

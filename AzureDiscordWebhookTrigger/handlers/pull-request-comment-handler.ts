@@ -11,7 +11,7 @@ const handlePullRequestComment: AzureEventHandler = async (
 
   const data: DiscordDto = {
     avatar_url: envs.AVATAR_URL,
-    content: `${azureEventDto.resource.comment.author.displayName} comentou na PR ${azureEventDto.resource.pullRequest.pullRequestId}: ${azureEventDto.resource.comment.content} - link: ${url}`,
+    content: `Comentário: ${azureEventDto.resource.comment.content}\nComentarista: ${azureEventDto.resource.comment.author.displayName}\nPR: ${azureEventDto.resource.pullRequest.pullRequestId}\nURL: ${url}`,
     username: envs.DISCORD_USERNAME
   }
 

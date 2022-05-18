@@ -2,7 +2,7 @@ import { envs } from '../app.env'
 import { AzureEventDto } from '../dtos/azure-dto'
 import { DiscordDto } from '../dtos/discord-dto'
 import { send } from '../output'
-import { getSimpleBranchNames } from '../utils'
+import { getSimpleBranchNames, getValueOrEmptyString } from '../utils'
 import { AzureEventHandler } from './azure-event-handler'
 
 const handlePullRequestCreated: AzureEventHandler = async (
@@ -17,7 +17,13 @@ const handlePullRequestCreated: AzureEventHandler = async (
 
   const data: DiscordDto = {
     avatar_url: envs.AVATAR_URL,
-    content: `PR da ${source} para a ${target} do ${azureEventDto.resource.repository.name} criada pelo ${azureEventDto.resource.createdBy.displayName} - título: ${azureEventDto.resource.title}, descrição: ${azureEventDto.resource.description}, URL: ${azureEventDto.resource._links.web.href}`,
+    content: `Origem: ${source}\nDestino: ${target}\nRepositório: ${
+      azureEventDto.resource.repository.name
+    }\nCriador: ${azureEventDto.resource.createdBy.displayName}\nTítulo: ${
+      azureEventDto.resource.title
+    }\nDescrição: ${getValueOrEmptyString(
+      azureEventDto.resource.description
+    )}\nURL: ${getValueOrEmptyString(azureEventDto.resource._links.web.href)}`,
     username: envs.DISCORD_USERNAME
   }
 

@@ -21,7 +21,7 @@ export class ResourceDto {
   createdBy: CreatedByDto
   creationDate: Date
   definition: DefinitionDto
-  description: string
+  description?: string
   drop: object
   fields: FieldsDto
   finishTime: Date
