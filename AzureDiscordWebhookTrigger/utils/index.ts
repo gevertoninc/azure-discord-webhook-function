@@ -1,4 +1,19 @@
+import { ColorEnum } from '../colors'
 import { constants } from '../constants'
+import { StatusType } from '../types/status-types'
+
+const getColorByStatus = (status: StatusType): ColorEnum => {
+  switch (status) {
+    case 'failed':
+      return ColorEnum.RED
+    case 'partiallySucceeded':
+      return ColorEnum.YELLOW
+    case 'stopped':
+      return ColorEnum.WHITE
+    case 'succeeded':
+      return ColorEnum.GREEN
+  }
+}
 
 const getSimpleBranchName = (fullBranchName: string) => {
   return fullBranchName.split(constants.branchNamePrefix)[1]
@@ -16,4 +31,9 @@ const getValueOrEmptyString = (value: unknown): string => {
   return value
 }
 
-export { getSimpleBranchName, getSimpleBranchNames, getValueOrEmptyString }
+export {
+  getColorByStatus,
+  getSimpleBranchName,
+  getSimpleBranchNames,
+  getValueOrEmptyString
+}

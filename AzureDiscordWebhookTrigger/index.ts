@@ -34,9 +34,21 @@ const input: AzureFunction = async (
     return
   }
 
-  await handlers[azureEventDto.eventType](azureEventDto)
+  try {
+    await handlers[azureEventDto.eventType](azureEventDto)
 
-  context.res = { body: 'Dorime' }
+    context.res = {
+      body: 'Dorime',
+      headers: { 'Content-Type': 'application/json' },
+      status: constants.httpOkStatus
+    }
+  } catch (error) {
+    context.res = {
+      body: error,
+      headers: { 'Content-Type': 'application/json' },
+      status: error.status
+    }
+  }
 }
 
 export default input

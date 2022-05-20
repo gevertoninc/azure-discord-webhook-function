@@ -14,7 +14,7 @@ const parseFieldErrors = (
   ): ValidationErrorsOutputDto => {
     const { property } = validationError
 
-    const currentPropertyAlreadyHasErrors =
+    const currentPropertyAlreadyHasErrors: unknown =
       Object.prototype.hasOwnProperty.call(currentFieldErrors, property)
 
     if (currentPropertyAlreadyHasErrors) {

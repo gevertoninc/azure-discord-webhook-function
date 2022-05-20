@@ -7,7 +7,7 @@
     "eslint": "npx eslint .",
     "prestart": "npm run build",
     "prettier": "npx prettier --write .",
-    "start": "/usr/bin/func start --typescript",
+    "start": "func start --typescript",
     "watch": "tsc -w"
   },
   "devDependencies": {

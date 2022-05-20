@@ -1,3 +1,4 @@
+import { StatusType } from '../types/status-types'
 import { CommentDto } from './comment-dto'
 import { CreatedByDto } from './created-by-dto'
 import { DefinitionDto } from './definition-dto'
@@ -46,7 +47,7 @@ export class ResourceDto {
   sourceGetVersion: string
   sourceRefName: string
   startTime: Date
-  status: string
+  status: StatusType
   supportsIterations: boolean
   targetRefName: string
   title: string
